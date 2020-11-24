@@ -6,12 +6,13 @@
 */
 
 #include <triton/api.hpp>
-
+#include "../../libtriton/includes/triton/api.hpp"
 #include <iostream>
 #include "api.hpp"
 #include "snapshot.hpp"
 
-
+#include <../../../../../target-i386/PEMU/PIN/pin.H>
+//#include <../../../../../target-i386/PEMU/PIN/gen/pin_client.PH>
 
 namespace tracer {
   namespace pintool {
@@ -58,7 +59,7 @@ namespace tracer {
         #endif
 
         /* 6 - Save Pin registers context */
-        PIN_SaveContext(ctx, &this->pinCtx);
+//        PIN_SaveContext(ctx, &this->pinCtx);
       }
 
 
@@ -92,11 +93,11 @@ namespace tracer {
         #endif
 
         /* 6 - Restore Pin registers context */
-        PIN_SaveContext(&this->pinCtx, ctx);
+ //       PIN_SaveContext(&this->pinCtx, ctx);
 
         this->mustBeRestore = false;
         PIN_UnlockClient();
-        PIN_ExecuteAt(ctx);
+  //      PIN_ExecuteAt(ctx);
       }
 
 

@@ -15,7 +15,10 @@
 #include <stdexcept>
 #include <string>
 
-#include <pin.H>
+//#include <pin.H>
+#include <../../../../../target-i386/PEMU/PIN/pin.H>
+
+//#include <../../../../../target-i386/PEMU/PIN/gen/pin_client.PH>
 
 /* pintool */
 #include "bindings.hpp"
