@@ -10,7 +10,13 @@
 #include <triton/pythonObjects.hpp>
 #include <triton/tritonTypes.hpp>
 
-#include <pin.H>
+//#include <../../../../pin.H>
+
+#include <../../../../../target-i386/PEMU/PIN/pin.H>
+
+#include <../../../../../target-i386/PEMU/PIN/level_core.PLH>
+
+#include <../../../../../target-i386/PEMU/PIN/level_base.PLH>
 
 /* pintool */
 #include "api.hpp"
@@ -157,10 +163,10 @@ Creates a snaphost at this program point.
 
 namespace tracer {
   namespace pintool {
-
+/*
     static PyObject* pintool_checkReadAccess(PyObject* self, PyObject* addr) {
-      if (!PyLong_Check(addr) && !PyInt_Check(addr))
-        return PyErr_Format(PyExc_TypeError, "tracer::pintool::checkReadAccess(): Expected an address (integer) as argument.");
+     if (!PyLong_Check(addr) && !PyInt_Check(addr))
+      return PyErr_Format(PyExc_TypeError, "tracer::pintool::checkReadAccess(): Expected an address (integer) as argument.");
 
       if (PIN_CheckReadAccess(reinterpret_cast<void*>(triton::bindings::python::PyLong_AsUint(addr))) == true)
         Py_RETURN_TRUE;
@@ -178,7 +184,7 @@ namespace tracer {
 
       Py_RETURN_FALSE;
     }
-
+*/
 
     static PyObject* pintool_detachProcess(PyObject* self, PyObject* noarg) {
       PIN_Detach();
@@ -258,7 +264,7 @@ namespace tracer {
     }
 
 
-    static PyObject* pintool_getSyscallArgument(PyObject* self, PyObject* args) {
+   static PyObject* pintool_getSyscallArgument(PyObject* self, PyObject* args) {
       PyObject* num = nullptr;
       PyObject* std = nullptr;
       triton::__uint ret;
@@ -274,8 +280,10 @@ namespace tracer {
       if (num == nullptr || (!PyLong_Check(num) && !PyInt_Check(num)))
         return PyErr_Format(PyExc_TypeError, "tracer::pintool::getSyscallArgument(): Expected an id (integer) as second argument.");
 
-      LEVEL_CORE::SYSCALL_STANDARD standard = static_cast<LEVEL_CORE::SYSCALL_STANDARD>(triton::bindings::python::PyLong_AsUint32(std));
-      ret = PIN_GetSyscallArgument(tracer::pintool::context::lastContext, standard, triton::bindings::python::PyLong_AsUint32(num));
+      SYSCALL_STANDARD standard = static_cast<SYSCALL_STANDARD>(triton::bindings::python::PyLong_AsUint32(std));
+      
+      //removing LEVEL_CORE from the previous line, before every SYSCALL_STANDARD was LEVEL_CORE::SYSCALL_STANDARD
+      ret = PIN_GetSyscallArgument(const_cast<const long unsigned int**>(tracer::pintool::context::lastContext), standard, triton::bindings::python::PyLong_AsUint32(num));
 
       return triton::bindings::python::PyLong_FromUint(ret);
     }
@@ -287,8 +295,10 @@ namespace tracer {
       if (!PyLong_Check(std) && !PyInt_Check(std))
         return PyErr_Format(PyExc_TypeError, "tracer::pintool::getSyscallNumber(): Expected an id (integer) as argument.");
 
-      LEVEL_CORE::SYSCALL_STANDARD standard = static_cast<LEVEL_CORE::SYSCALL_STANDARD>(triton::bindings::python::PyLong_AsUint32(std));
-      syscallNumber = PIN_GetSyscallNumber(tracer::pintool::context::lastContext, standard);
+      SYSCALL_STANDARD standard = static_cast<SYSCALL_STANDARD>(triton::bindings::python::PyLong_AsUint32(std));
+
+      //removing LEVEL_CORE from the previous line, before every SYSCALL_STANDARD was LEVEL_CORE::SYSCALL_STANDARD
+      syscallNumber = PIN_GetSyscallNumber(const_cast<const long unsigned int**>(tracer::pintool::context::lastContext),(standard));
 
       return triton::bindings::python::PyLong_FromUint32(syscallNumber);
     }
@@ -300,8 +310,9 @@ namespace tracer {
       if (!PyLong_Check(std) && !PyInt_Check(std))
         return PyErr_Format(PyExc_TypeError, "tracer::pintool::getSyscallReturn(): Expected an id (integer) as argument.");
 
-      LEVEL_CORE::SYSCALL_STANDARD standard = static_cast<LEVEL_CORE::SYSCALL_STANDARD>(triton::bindings::python::PyLong_AsUint32(std));
-      ret = PIN_GetSyscallReturn(tracer::pintool::context::lastContext, standard);
+      SYSCALL_STANDARD standard = static_cast<SYSCALL_STANDARD>(triton::bindings::python::PyLong_AsUint32(std));
+      //removing LEVEL_CORE from the previous line, before every SYSCALL_STANDARD was LEVEL_CORE::SYSCALL_STANDARD
+      ret = PIN_GetSyscallReturn(const_cast<const long unsigned int**>(tracer::pintool::context::lastContext), standard);
 
       return triton::bindings::python::PyLong_FromUint(ret);
     }
@@ -577,8 +588,8 @@ namespace tracer {
 
 
     PyMethodDef pintoolCallbacks[] = {
-      {"checkReadAccess",           pintool_checkReadAccess,            METH_O,         ""},
-      {"checkWriteAccess",          pintool_checkWriteAccess,           METH_O,         ""},
+//      {"checkReadAccess",           pintool_checkReadAccess,            METH_O,         ""},
+//      {"checkWriteAccess",          pintool_checkWriteAccess,           METH_O,         ""},
       {"detachProcess",             pintool_detachProcess,              METH_NOARGS,    ""},
       {"disableSnapshot",           pintool_disableSnapshot,            METH_NOARGS,    ""},
       {"getCurrentMemoryValue",     pintool_getCurrentMemoryValue,      METH_VARARGS,   ""},
