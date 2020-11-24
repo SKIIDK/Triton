@@ -11,8 +11,8 @@
 #include <map>
 #include <set>
 
-//#include <pin.H>
-#include "../../../../../target-i386/PEMU/PIN/pin.h"
+#include <pin.H>
+
 /* libTriton */
 #include <triton/ast.hpp>
 #include <triton/symbolicEngine.hpp>

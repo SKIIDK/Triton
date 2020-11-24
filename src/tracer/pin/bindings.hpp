@@ -17,8 +17,7 @@
 #include <set>
 #include <vector>
 
-//#include <pin.H>
-#include "../../../../../target-i386/PEMU/PIN/pin.H"
+#include <pin.H>
 
 /* pintool */
 #include "snapshot.hpp"

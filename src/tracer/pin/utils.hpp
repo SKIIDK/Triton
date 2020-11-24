@@ -9,8 +9,7 @@
 #define TRITON_UTILS_H
 
 #include <string>
-//#include <pin.H>
-#include "../../../../../target-i386/PEMU/PIN/pin.h"
+#include <pin.H>
 #include <triton/tritonTypes.hpp>
 
 

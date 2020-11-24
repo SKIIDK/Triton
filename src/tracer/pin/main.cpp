@@ -15,18 +15,8 @@
 #include <stdexcept>
 #include <string>
 
-//#include <pin.H>
-#include "../../../../../target-i386/PEMU/PIN/pin.H"
-//added the line below
-#include "../../../../../target-i386/PEMU/PIN/gen/knob.PH"
+#include <pin.H>
 
-#include "../../../../../target-i386/PEMU/PIN/img.h"
-
-#include "../../../../../target-i386/PEMU/PIN/rtn.h"
-
-#include "../../../../../target-i386/PEMU/PIN/gen/message.h"
-
-//#include "../../../../../target-i386/PEMU/PIN/gen/image.PH"
 /* Pintool */
 #include "api.hpp"
 #include "bindings.hpp"

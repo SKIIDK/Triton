@@ -8,8 +8,8 @@
 #ifndef TRITON_PIN_CONTEXT_H
 #define TRITON_PIN_CONTEXT_H
 
-//#include <pin.H>
-#include "../../../../../target-i386/PEMU/PIN/pin.H"
+#include <pin.H>
+
 /* libTriton */
 #include <triton/tritonTypes.hpp>
 
