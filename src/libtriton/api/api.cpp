@@ -1131,12 +1131,6 @@ namespace triton {
   }
 
 
-  void API::setSolverTimeout(triton::uint32 ms) {
-    this->checkSolver();
-    this->solver->setTimeout(ms);
-  }
-
-
 
   /* Taint engine API ============================================================================== */
 

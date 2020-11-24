@@ -69,9 +69,6 @@ namespace triton {
 
           //! Returns the name of the solver.
           TRITON_EXPORT virtual std::string getName(void) const = 0;
-
-          //! Defines a solver timeout (in milliseconds).
-          TRITON_EXPORT virtual void setTimeout(triton::uint32 ms) = 0;
       };
 
     /*! @} End of solver namespace */

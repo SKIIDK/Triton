@@ -104,13 +104,6 @@ namespace triton {
         return this->solver->getName();
       }
 
-
-      void SolverEngine::setTimeout(triton::uint32 ms) {
-        if (this->solver) {
-          this->solver->setTimeout(ms);
-        }
-      }
-
     };
   };
 };
