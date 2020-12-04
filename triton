@@ -1,0 +1,21 @@
+#!/bin/bash
+
+PIN_BIN_PATH=/home/skiidk/pemu/plugins/Triton/../../../pin.sh
+PINTOOL_PATH=/home/skiidk/pemu/plugins/Triton/src/tracer/pin/libpintool.so
+
+if [ -z "$1" ]
+  then
+    echo "You need to specify a script"
+    echo "Syntax: ./triton <your_script.py> <target binary> [target binary args]"
+    exit
+fi
+
+if [ -z "$2" ]
+  then
+    echo "You need to specify a target binary"
+    echo "Syntax: ./triton <your_script.py> <target binary> [target binary args]"
+    exit
+fi
+
+LD_BIND_NOW=1 $PIN_BIN_PATH -ifeellucky -t $PINTOOL_PATH -script $1 -- ${@:2}
+

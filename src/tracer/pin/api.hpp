@@ -8,8 +8,8 @@
 #ifndef TRITON_PIN_API_H
 #define TRITON_PIN_API_H
 
-#include <triton/api.hpp>
-
+//#include <triton/api.hpp>
+#include "../../../src/libtriton/includes/triton/api.hpp"
 
 
 //! The Tracer namespace

@@ -18,27 +18,27 @@
 //#include <pin.H>
 #include "../../../../../target-i386/PEMU/PIN/pin.H"
 //added the line below
-#include "../../../../../target-i386/PEMU/PIN/gen/knob.h"
+//# just removedinclude "../../../../../target-i386/PEMU/PIN/gen/knob.h"
 
-#include "../../../../../target-i386/PEMU/PIN/img.h"
+//#include "../../../../../target-i386/PEMU/PIN/img.h"
 
-#include "../../../../../target-i386/PEMU/PIN/rtn.h"
+//just removed#include "../../../../../target-i386/PEMU/PIN/rtn.h"
 
 //#include "../../../../../target-i386/PEMU/PIN/gen/message.h"
 
-#include "../../../../../target-i386/PEMU/PIN/gen/ins_api_xed_ia32.h"
+//just removed#include "../../../../../target-i386/PEMU/PIN/gen/ins_api_xed_ia32.h"
 
 
-#include "../../../../../target-i386/PEMU/PIN/gen/operand_ia32.PH"
+//just removed#include "../../../../../target-i386/PEMU/PIN/gen/operand_ia32.PH"
 //#include "../../../../../target-i386/PEMU/PIN/gen/pin_client.PH"
 //#include "../../../../../target-i386/PEMU/PIN/gen/image.PH"
 /* Pintool */
-#include "api.hpp"
-#include "bindings.hpp"
-#include "context.hpp"
-#include "snapshot.hpp"
-#include "trigger.hpp"
-#include "utils.hpp"
+#include "./api.hpp"
+#include "./bindings.hpp"
+#include "./context.hpp"
+#include "./snapshot.hpp"
+#include "./trigger.hpp"
+#include "./utils.hpp"
 
 
 

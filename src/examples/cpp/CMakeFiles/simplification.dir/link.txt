@@ -1,0 +1,1 @@
+/usr/bin/c++    -DZ3_INTERFACE -D_GLIBCXX_USE_CXX11_ABI=0 -std=c++11 -fPIC -O3 -DNDEBUG    CMakeFiles/simplification.dir/simplification.cpp.o  -o simplification -rdynamic ../../libtriton/libtriton.so -lpython2.7 -lz3 -lcapstone -Wl,-rpath,/home/skiidk/pemu/plugins/Triton/src/libtriton 

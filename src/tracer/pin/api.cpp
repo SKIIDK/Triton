@@ -5,9 +5,8 @@
 **  This program is under the terms of the Apache License 2.0.
 */
 
-#include <triton/api.hpp>
-
-
+//#include <triton/api.hpp>
+#include "../../../src/libtriton/includes/triton/api.hpp"
 
 namespace tracer {
   namespace pintool {

@@ -6,8 +6,11 @@
 */
 
 /* libTriton */
-#include <triton/pythonUtils.hpp>
-#include <triton/pythonXFunctions.hpp>
+#include "../../../../../target-i386/PEMU/PIN/pin.H"
+//#include <triton/pythonUtils.hpp>
+//#include <triton/pythonXFunctions.hpp>
+#include "../../../src/libtriton/includes/triton/pythonUtils.hpp"
+#include "../../../src/libtriton/includes/triton/pythonXFunctions.hpp"
 
 #if defined(__unix__) || defined(__APPLE__)
   #include <dlfcn.h>
